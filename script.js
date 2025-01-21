@@ -31,6 +31,7 @@ const renderTask = (text, completed) => {
   const li = document.createElement('li');
   if (completed) li.classList.add('completed');
 
+  // Task Text
   const span = document.createElement('span');
   span.textContent = text;
   span.onclick = () => {
@@ -38,6 +39,12 @@ const renderTask = (text, completed) => {
     saveTasks();
   };
 
+  // Edit Button
+  const editButton = document.createElement('button');
+  editButton.textContent = 'Edit';
+  editButton.onclick = () => editTask(li, span);
+
+  // Delete Button
   const deleteButton = document.createElement('button');
   deleteButton.textContent = 'Delete';
   deleteButton.onclick = () => {
@@ -46,8 +53,31 @@ const renderTask = (text, completed) => {
   };
 
   li.appendChild(span);
+  li.appendChild(editButton);
   li.appendChild(deleteButton);
   taskList.appendChild(li);
+};
+
+// Edit Task
+const editTask = (li, span) => {
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.value = span.textContent;
+  li.replaceChild(input, span);
+
+  // Save Changes
+  const saveButton = document.createElement('button');
+  saveButton.textContent = 'Save';
+  saveButton.onclick = () => {
+    span.textContent = input.value.trim() || 'Untitled Task';
+    li.replaceChild(span, input);
+    li.replaceChild(editButton, saveButton);
+    saveTasks();
+  };
+
+  // Replace Edit Button with Save Button
+  const editButton = li.querySelector('button:nth-child(2)');
+  li.replaceChild(saveButton, editButton);
 };
 
 // Load tasks on page load

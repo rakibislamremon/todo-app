@@ -44,20 +44,41 @@ body {
   }
   
   /* Button Styles */
-  button {
-    padding: 10px 15px;
+  li {
+    background: #eef3fc;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  li button {
     background-color: #5b8eef;
     color: white;
     border: none;
     border-radius: 5px;
+    padding: 5px 10px;
+    margin-left: 5px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.9rem;
     transition: background-color 0.3s ease;
   }
   
-  button:hover {
+  li button:hover {
     background-color: #3b5998;
   }
+  
+  li button:nth-child(3) {
+    background-color: #e74c3c;
+  }
+  
+  li button:nth-child(3):hover {
+    background-color: #c0392b;
+  }
+  
   
   /* Task List Styles */
   ul {
@@ -130,5 +151,40 @@ body {
       margin-top: 5px;
       align-self: flex-end;
     }
+  }
+  /* Responsive Design for Add Button */
+@media (max-width: 768px) {
+    button {
+      width: 100%; /* Full width on smaller screens */
+      padding: 12px 0; /* Larger padding for better touch accessibility */
+      font-size: 1rem; /* Adjust font size */
+      margin: 10px 0 0; /* Add spacing below input */
+    }
+  }
+  /* Add Button Styles */
+button {
+    padding: 10px 20px;
+    background-color: #5b8eef; /* Primary color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-left: 5px; /* Adjust spacing from input */
+    display: inline-block;
+    text-align: center;
+  }
+  
+  /* Hover and Active States */
+  button:hover {
+    background-color: #3b5998; /* Darker shade for hover */
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slight shadow */
+  }
+  
+  button:active {
+    background-color: #4a75d3; /* Slightly darker for active */
+    transform: translateY(0); /* Pressed-down effect */
   }
   
