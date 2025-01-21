@@ -91,9 +91,9 @@ body {
     margin: 10px 0;
     padding: 10px;
     border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; /* Enables horizontal alignment */
+    justify-content: space-between; /* Space between text and buttons */
+    align-items: center; /* Centers items vertically */
     transition: transform 0.2s ease, box-shadow 0.3s ease;
   }
   
@@ -188,3 +188,7 @@ button {
     transform: translateY(0); /* Pressed-down effect */
   }
   
+  li span {
+    flex: 1; /* Allows the text to take available space */
+    margin-right: 10px; /* Adds space between text and buttons */
+  }
