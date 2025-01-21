@@ -52,4 +52,3 @@ const renderTask = (text, completed) => {
 
 // Load tasks on page load
 loadTasks();
-s
